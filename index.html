@@ -9,12 +9,18 @@
   <body>
     <h2>Lista de tareas📋</h2>
     <div class="contenedor">
-      <input type="text" class="tarea" id="tarea" placeholder="Ingrese una tarea" />
-      <input type="date" class="fecha" id="fecha" />
+      <div class="elemento">
+        <label for="tarea"></label>
+        <input type="text" id="tarea" placeholder="Ingrese una tarea" />
+      </div>
+      <div class="elemento">
+        <label for="fecha"></label>
+        <input type="date" id="fecha" />
+      </div>
     </div>
+
     <div class="botones">
       <button class="agregarTarea" id="agregarTarea">Agregar tarea</button>
     </div>
-    <ul id="tareas"></ul>
   </body>
 </html>

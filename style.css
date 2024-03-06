@@ -24,12 +24,6 @@ h2 {
   padding: 20px;
 }
 
-.botones {
-  display: flex;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
 #tarea,
 #fecha {
   width: 40vh;

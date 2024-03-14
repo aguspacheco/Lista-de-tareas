@@ -1,0 +1,96 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  background: linear-gradient(40deg, #8022be, #cc299b);
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+    Verdana, sans-serif;
+  color: #fefae0;
+}
+
+.contenedor {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.elemento {
+  padding: 20px;
+}
+
+#tarea,
+#fecha {
+  width: 40vh;
+  background-color: #fefae0;
+  color: #333;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.botones button {
+  margin-right: 20px;
+}
+
+.agregarTarea {
+  background-color: #007bff;
+  color: #fefae0;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.verTarea {
+  background-color: #fefae0;
+  color: #03045e;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.volver {
+  background-color: #ffc300;
+  color: #001219;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.volver:active {
+  background-color: #f9c74f;
+  transition: background-color 0.2s ease;
+}
+
+.verTarea:active {
+  background-color: #d9dfe4;
+  transition: background-color 0.2s ease;
+}
+
+.agregarTarea:active {
+  background-color: #0056b3;
+  transition: background-color 0.2s ease;
+}
+
+#tarea:hover,
+#fecha:hover {
+  background-color: #d59bf7;
+}
+
+#tablaTareas,
+#volver-btn {
+  display: none;
+}

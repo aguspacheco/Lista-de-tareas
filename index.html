@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de tareas ✏</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Lista de tareas📋</h2>
+    <div class="contenedor">
+      <div class="elemento">
+        <label for="tarea"></label>
+        <input type="text" id="tarea" placeholder="Ingrese una tarea" required />
+      </div>
+      <div class="elemento">
+        <label for="fecha"></label>
+        <input type="date" id="fecha" required />
+      </div>
+    </div>
+
+    <table id="tablaTareas">
+      <caption>
+        TABLA DE TAREAS
+      </caption>
+      <thead>
+        <th>Tarea</th>
+        <th>Fecha</th>
+      </thead>
+    </table>
+
+    <div class="botones">
+      <button class="agregarTarea" id="agregarTarea-btn">Agregar tarea</button>
+
+      <button class="verTarea" id="verTarea-btn">Ver Tareas</button>
+
+      <button class="volver" id="volver-btn">Volver ⬅</button>
+    </div>
+  </body>
+  <script src="./tarea/main.js"></script>
+</html>

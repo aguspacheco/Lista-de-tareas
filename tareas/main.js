@@ -1,70 +1,64 @@
+const tareaInput = document.getElementById("tarea");
+const fechaInput = document.getElementById("fecha");
+const agregarTareaBtn = document.getElementById("agregarTarea-btn");
+const verTareaBtn = document.getElementById("verTarea-btn");
+const volverBtn = document.getElementById("volver-btn");
+const tablaBody = document.createElement("tbody");
 const tablaTareas = document.getElementById("tablaTareas");
 
-/**
- * Agrega una fila a la tabla de tareas con la información de una tarea y fecha.
- * @param {string} tarea - La tarea ingresada.
- * @param {string} fecha - La fecha ingresada.
- */
-function agregarFilaTarea(tarea, fecha, tabla) {
-  const fila = document.createElement("tr");
-  fila.innerHTML = `
-    <td>${tarea}</td>
-    <td>${fecha}</td>
-  `;
-  tabla.appendChild(fila);
+let tareas = [];
+
+function agregarTarea() {
+  const tarea = tareaInput.value.trim();
+  const fecha = fechaInput.value.trim();
+
+  if (tarea && fecha) {
+    if (tareas.length < 10) {
+      tareas.push({ tarea, fecha });
+      tareaInput.value = "";
+      fechaInput.value = "";
+      actualizarTabla();
+    } else {
+      alert("Se alcanzo el máximo de tareas");
+    }
+  } else {
+    alert("Por favor, ingresa una tarea y una fecha");
+  }
 }
 
-/**
- * Obtiene los valores de entrada ingresados por el usuario.
- * @returns {Object} - Un objeto con los valores de entrada ingresados por el usuario.
- */
-function obtenerValoresEntrada() {
-  const tarea = document.getElementById("tarea").value.trim();
-  const fecha = document.getElementById("fecha").value;
+function actualizarTabla() {
+  tablaBody.innerHTML = "";
 
-  if (tarea.length === 0 || fecha.length === 0) {
-    alert("Por favor, ingrese valores en todos los campos.");
-    return null;
+  if (tareas.length === 0) {
+    const filaSinTareas = document.createElement("tr");
+    const celdaSinTareas = document.createElement("td");
+    celdaSinTareas.colSpan = 2;
+    celdaSinTareas.textContent = "No se ingreso ninguna tarea";
+    filaSinTareas.appendChild(celdaSinTareas);
+    tablaBody.appendChild(filaSinTareas);
+  } else {
+    tareas.forEach((tarea, index) => {
+      const fila = document.createElement("tr");
+      const celdaTarea = document.createElement("td");
+      const celdaFecha = document.createElement("td");
+
+      celdaTarea.textContent = tarea.tarea;
+      celdaFecha.textContent = tarea.fecha;
+
+      fila.appendChild(celdaTarea);
+      fila.appendChild(celdaFecha);
+      tablaBody.appendChild(fila);
+    });
   }
 
-  return { tarea, fecha };
+  tablaTareas.appendChild(tablaBody);
 }
 
-function crearTabla(valoresEntrada) {
-  const { tarea, fecha } = valoresEntrada;
-  agregarFilaTarea("tarea", tarea, tablaTareas);
+function mostrarTabla() {
+  tablaTareas.style.display = tablaTareas.style.display === "none" ? "table" : "none";
+  volverBtn.style.display = tablaTareas.style.display === "none" ? "table" : "inline-block";
 }
 
-/*Boton agregar*/
-const agregarTareaBtn = document.getElementById("agregarTarea-btn");
-agregarTareaBtn.addEventListener("click", () => {
-  agregarFilaTarea();
-
-  const valoresEntrada = obtenerValoresEntrada();
-
-  if (valoresEntrada === null) {
-    return;
-  }
-});
-
-/*Boton para visualizar las tareas*/
-const verTareaBtn = document.getElementById("verTarea-btn");
-verTareaBtn.addEventListener("click", () => {
-  tablaTareas.style.display = "block";
-  tarea.style.display = "none";
-  fecha.style.display = "none";
-  agregarTareaBtn.style.display = "none";
-  verTareaBtn.style.display = "none";
-  volverBtn.style.display = "block";
-});
-
-/* boton para volver */
-const volverBtn = document.getElementById("volver-btn");
-volverBtn.addEventListener("click", () => {
-  tablaTareas.style.display = "none";
-  agregarTareaBtn.style.display = "inline-block";
-  verTareaBtn.style.display = "inline-block";
-  volverBtn.style.display = "none";
-  fecha.style.display = "block";
-  tarea.style.display = "block";
-});
+agregarTareaBtn.addEventListener("click", agregarTarea);
+verTareaBtn.addEventListener("click", mostrarTabla);
+volverBtn.addEventListener("click", mostrarTabla);

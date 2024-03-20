@@ -55,8 +55,17 @@ function actualizarTabla() {
 }
 
 function mostrarTabla() {
-  tablaTareas.style.display = tablaTareas.style.display === "none" ? "table" : "none";
-  volverBtn.style.display = tablaTareas.style.display === "none" ? "table" : "inline-block";
+  agregarTareaBtn.style.display = "none";
+  verTareaBtn.style.display = "none";
+  volverBtn.style.display = "block";
+  tablaTareas.style.display = "block";
+  volverBtn.addEventListener("click", volver);
+}
+
+function volver() {
+  agregarTareaBtn.style.display = "inline-block";
+  verTareaBtn.style.display = "inline-block";
+  volverBtn.style.display = "none";
 }
 
 agregarTareaBtn.addEventListener("click", agregarTarea);

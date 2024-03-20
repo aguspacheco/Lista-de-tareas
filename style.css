@@ -85,6 +85,25 @@ h2 {
   transition: background-color 0.2s ease;
 }
 
+.mensaje {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #d59bf7;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px #cc299b;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mensaje.mostrar {
+  opacity: 1;
+}
+
 #tarea:hover,
 #fecha:hover {
   background-color: #d59bf7;

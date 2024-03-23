@@ -65,6 +65,7 @@ h2 {
   color: #001219;
   cursor: pointer;
   padding: 8px 16px;
+  margin-top: 20px;
   border: none;
   border-radius: 8px;
   transition: background-color 0.3s ease;
@@ -83,6 +84,30 @@ h2 {
 .agregarTarea:active {
   background-color: #0056b3;
   transition: background-color 0.2s ease;
+}
+
+#tablaTareas {
+  margin-top: 20px;
+  box-shadow: 0px 10px 10px #ff8fa3;
+  background-color: #f1e3d3;
+}
+
+#tablaTareas caption {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fefae0;
+  padding: 5px;
+  background-color: #007bff;
+  font-family: monospace;
+}
+
+#tablaTareas td {
+  padding: 20px;
+  text-align: center;
+}
+
+#tablaTareas tr:hover {
+  background-color: #d59bf7;
 }
 
 .mensaje {
